@@ -4,7 +4,14 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
+        {
+            "name": "Debug: No Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": "${command:pickArgs}"
+        },
         {
             "name": "Python Debugger: Current File",
             "type": "debugpy",
@@ -12,7 +19,16 @@
             "program": "${file}",
             "console": "integratedTerminal",
             //"args": "${command:pickArgs}"
-            "args": ["--filename", "./src/metadata.csv", "--data_dir", "./src/tmp","--show_figures", "--generate_logs", "--debug"]
-        }
+            "args": [
+                "--filename",
+                "./src/metadata.csv",
+                "--data_dir",
+                "./src/tmp",
+                "--show_figures",
+                "--generate_logs",
+                "--debug"
+            ]
+        },
+        
     ]
 }

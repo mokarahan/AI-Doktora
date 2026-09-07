@@ -1,5 +1,6 @@
-DIR="Dataset/NATO"
-FILE="5.+Battery+Data+Set.zip"
+DIR="Dataset/NASA"
+FILE="5. Battery Data Set.zip"
+DFILE="5. Battery Data Set"
 URL="https://phm-datasets.s3.amazonaws.com/NASA"
 
 # Modern Bash method
@@ -17,6 +18,6 @@ else
     wget -P "$DIR" "$URL/$FILE"
 fi
 
-unzip "$DIR/$FILE" -d "$DIR/"
-
-
+unzip -o "$DIR/$FILE" -d "$DIR/"
+cd "$DIR/$DFILE"
+for a in *.zip; do unzip -o "$a" -d "${a%.zip}"; done

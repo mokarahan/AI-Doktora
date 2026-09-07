@@ -2,12 +2,25 @@ import numpy as np
 import pandas as pd
 import os
 import scipy.io
+import argparse
 
 np.set_printoptions(suppress=True, precision=4)
 
 home_path = os.environ.get("HOME")
-project_path = f"{home_path}/Dev/Doktora/Dataset/Nasa/"
-print ("Project Home: ", project_path)
+
+# 1. Initialize the argument parser
+parser = argparse.ArgumentParser(description="A script that accepts a filename as an argument and processes the CSV file.")
+
+# 2. Add an argument (positional or optional)
+parser.add_argument("--export_dir", type=str, default=f"{home_path}/Dev/doktora/Dataset/NASA/", help="Dir of csv data files")
+# 3. Parse the command-line arguments
+args = parser.parse_args()
+
+# Define the path to CSV file
+# (Can be a local file path or a direct web URL)
+project_path = args.export_dir
+
+print (f"Checking {args.export_dir}")
 
 # %% [code] {"execution":{"iopub.status.busy":"2022-10-29T20:22:04.66978Z","iopub.execute_input":"2022-10-29T20:22:04.670241Z","iopub.status.idle":"2022-10-29T20:22:04.678514Z","shell.execute_reply.started":"2022-10-29T20:22:04.670199Z","shell.execute_reply":"2022-10-29T20:22:04.677212Z"}}
 # Helper functions
@@ -34,6 +47,7 @@ def loadmat(filepath):
 # %% [code] {"execution":{"iopub.status.busy":"2022-10-29T20:22:16.548807Z","iopub.execute_input":"2022-10-29T20:22:16.54959Z","iopub.status.idle":"2022-10-29T20:22:16.566778Z","shell.execute_reply.started":"2022-10-29T20:22:16.549535Z","shell.execute_reply":"2022-10-29T20:22:16.56519Z"}}
 FILELIST = filter_matfiles_list(load_filelist())
 
+print (FILELIST)
 # %% [code] {"execution":{"iopub.status.busy":"2022-10-29T20:22:25.375714Z","iopub.execute_input":"2022-10-29T20:22:25.376203Z","iopub.status.idle":"2022-10-29T20:22:25.390646Z","shell.execute_reply.started":"2022-10-29T20:22:25.376166Z","shell.execute_reply":"2022-10-29T20:22:25.389186Z"}}
 def process_data_dict(data_dict):
     """ Creates two dictionaries:
