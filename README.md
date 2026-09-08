@@ -1,5 +1,30 @@
 This is a pHD project to determine the RUL of a Lithium-Ion Battery with CNN-MHA-TCN-FCL hybrid model with NASA Battery dataset.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 AI-Doktora/
 ├── Dataset
 │   └── NASA
