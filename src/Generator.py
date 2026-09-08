@@ -12,7 +12,7 @@ home_path = os.environ.get("HOME")
 parser = argparse.ArgumentParser(description="A script that accepts a filename as an argument and processes the CSV file.")
 
 # 2. Add an argument (positional or optional)
-parser.add_argument("--export_dir", type=str, default=f"{home_path}/Dev/doktora/Dataset/NASA/", help="Dir of csv data files")
+parser.add_argument("--export_dir", type=str, default=f"{home_path}/Dev/AI-Doktora/Dataset/NASA/", help="Dir of csv data files")
 # 3. Parse the command-line arguments
 args = parser.parse_args()
 
