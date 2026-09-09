@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
 import torch
 from torch import optim
 from torch import nn
@@ -21,8 +20,6 @@ import torchmetrics
 from torchmetrics import Precision 
 from torchmetrics import Accuracy
 from torchmetrics import Recall
-
-
 
 batch_size = 60
 
@@ -141,4 +138,3 @@ def test():
     test_recall = recall.compute()
 
     print(f"Test Accuracy: {test_accuracy}, Precision: {test_presicion}, Recall: {test_recall}")
-
