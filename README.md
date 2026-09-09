@@ -1,9 +1,3 @@
-<html>
-<head>
- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <meta name="Author" content="Made by 'tree'">
- <meta name="GENERATOR" content="tree v2.3.1 © 1996 - 2026 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro">
- <title>Directory Tree</title>
  <style type="text/css">
   BODY { font-family : monospace, sans-serif;  color: default;}
   P { font-family : monospace, sans-serif; color: black; margin:0px; padding: 0px;}
@@ -21,11 +15,11 @@
   .SOCK  { color: fuchsia;}
   .EXEC  { color: green;  }
  </style>
-</head>
 <body>
+	<br>
 	<h1>Definition</h1>
 	<b>This is a pHD project to determine the RUL of a Lithium-Ion Battery with CNN-MHA-TCN-FCL hybrid model with NASA Battery dataset.</b><p>
-	<a href="./"  style="color: purple;">.</a><br>
+	<a href="./" ="" style="color: purple;">PROJECT HOME</a><br>
 	├──&nbsp;<a href="./docs/"  style="color: purple;">docs</a><br>
 	│  &nbsp;├──&nbsp;<a href="./docs/download.txt">download.txt</a><br>
 	│  &nbsp;├──&nbsp;<a href="./docs/k%FFFFFFC4%FFFFFFB1saltmalar.txt">kısaltmalar.txt</a><br>
@@ -66,4 +60,3 @@
 		 Charsets / OS/2 support © 2001 by Kyosuke Tokoro
 	</p>
 </body>
-</html>
