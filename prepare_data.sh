@@ -3,7 +3,7 @@
 OS_TYPE=$(uname -s)
 
 PROJECT_HOME=$HOME/Dev/AI-Doktora
-EXDIR=$HOME/$PROJECT_HOME/Export
+EXDIR=$PROJECT_HOME/export
 
 if [[ -d "$EXDIR" ]]; then
     echo "$EXDIR exists."
