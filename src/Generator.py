@@ -18,15 +18,21 @@ parser.add_argument("--export_dir", type=str, default=f"{home_path}/Dev/AI-Dokto
 
 parser.add_argument("--metafile", type=str, default=f"metadata.csv", help="Name of the metadata file")
 
+parser.add_argument('--genzip', action=argparse.BooleanOptionalAction, default=False, help="Generate a zip file to keep csv files")
+
 # 3. Parse the command-line arguments
 args = parser.parse_args()
 
 # Define the path to CSV file
 # (Can be a local file path or a direct web URL)
 import_dir = args.import_dir
+gen_zip = args.genzip
+
+print("Zip Gen: ", gen_zip)
 
 export_dir = args.export_dir
 metafile = f"{export_dir}/{args.metafile}"
+
 
 print (f"Checking {import_dir}")
 
@@ -53,7 +59,9 @@ def loadmat(filepath):
 
 FILELIST = filter_matfiles_list(load_filelist())
 
-print (FILELIST)
+for item in FILELIST:
+    print(item)
+
 def process_data_dict(data_dict):
     """ Creates two dictionaries:
     - ndict: new dictionary with the test data to build a corresponding dataframe
@@ -107,16 +115,6 @@ def extract_more_metadata(metadata_dict):
 metadata = pd.DataFrame(data=None, columns=['type', 'start_time', 'ambient_temperature', 'battery_id', 'test_id', 'uid', 'filename', 'Capacity', 'Re', 'Rct'])
 battery_list = [item.split('/')[-1].split('.')[0] for item in FILELIST]
 
-# We create a tmp directory in which we will save all CSV files
-CWD = os.getcwd()
-os.listdir(CWD)
-directory = "tmp"
-path = os.path.join(CWD, directory)
-if not os.path.exists(path):
-    os.mkdir(path)
-
-os.listdir(CWD) # we check that tmp exists now
-
 uid = 0
 # counter = 0
 for battery_name, mat_filepath in zip(battery_list, FILELIST):
@@ -130,7 +128,7 @@ for battery_name, mat_filepath in zip(battery_list, FILELIST):
         
         uid += 1
         filename = str(uid).zfill(5)+'.csv'
-        filepath = f'{export_dir}' + filename
+        filepath = export_dir + filename
 
         # Extract the specific test data and save it as CSV! 
         ndict, metadata_dict = process_data_dict(test_list[test_id]['data'])
@@ -156,13 +154,6 @@ metadata.to_csv(metafile, index=False)
 
 metadata.info()
 
-import shutil
-
-shutil.make_archive('data', 'zip', 'tmp')
-
-# %% [code]
-
-# %% [markdown]
-# ## Problems
-# There seems to be a few duplicates for batteries 25,26,27,and 28. Let's actually check the data.
-# - By looking at the raw data we confirm that there are duplicates
+if (gen_zip):
+    import shutil
+    shutil.make_archive(base_name='data',format='zip', root_dir=export_dir, base_dir=".")
