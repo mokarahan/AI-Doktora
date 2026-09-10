@@ -104,7 +104,7 @@ def train():
         # Iterate over training batches
         print(f"Epoch [{epoch + 1}/{num_epochs}]")
 
-        for batch_index, (data, targets) in enumerate(tqdm(dataloader_train)):
+        for batch_index, (data, targets) in enumerate(tqdm(train_loader)):
             data = data.to(device)
             targets = targets.to(device)
             scores = model(data)

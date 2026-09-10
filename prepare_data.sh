@@ -16,12 +16,12 @@ case "$OS_TYPE" in
     Linux*)
         echo "Running on Linux"
         source $HOME/.venv/bin/activate
-        python3 $PROJECT_HOME/src/Generator.py
+        python3 $PROJECT_HOME/src/Generator.py $@
         ;;
     Darwin*)
         echo "Running on macOS"
         source $HOME/path/to/venv/bin/activate
-        python3 $PROJECT_HOME/src/Generator.py 
+        python3 $PROJECT_HOME/src/Generator.py $@
         ;;
     *)
         echo "Unknown Operating System: $OS_TYPE"
