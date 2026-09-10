@@ -2,19 +2,26 @@
 
 OS_TYPE=$(uname -s)
 
+PROJECT_HOME=$HOME/Dev/AI-Doktora
+EXDIR=$HOME/$PROJECT_HOME/Export
+
+if [[ -d "$EXDIR" ]]; then
+    echo "$EXDIR exists."
+else
+    echo "$EXDIR does not exist."
+    mkdir -p "$DIR"
+fi
+
 case "$OS_TYPE" in
     Linux*)
         echo "Running on Linux"
-        PROJECT_HOME=$HOME/Dev/AI-Doktora
         source $HOME/.venv/bin/activate
         python3 $PROJECT_HOME/src/Generator.py
         ;;
     Darwin*)
         echo "Running on macOS"
-        PROJECT_HOME=$HOME/Dev/AI-Doktora
         source $HOME/path/to/venv/bin/activate
         python3 $PROJECT_HOME/src/Generator.py 
-        # Insert Mac-specific commands here
         ;;
     *)
         echo "Unknown Operating System: $OS_TYPE"
