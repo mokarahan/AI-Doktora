@@ -148,4 +148,5 @@ metadata.info()
 
 if (gen_zip):
     import shutil
-    shutil.make_archive(base_name=export_dir+'data',format='zip', root_dir=export_dir, base_dir=".")
+    print(f"Building zip: {export_dir}data")
+    shutil.make_archive(base_name=export_dir+"/"+'data',format='zip', root_dir=export_dir, base_dir=".")
