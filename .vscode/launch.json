@@ -10,7 +10,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": "${command:pickArgs}"
+            "justMyCode": false
+            //"args": "${command:pickArgs}"
         },
         {
             "name": "Python Debugger: Current File",
