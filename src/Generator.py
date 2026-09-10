@@ -18,7 +18,7 @@ parser.add_argument("--export_dir", type=str, default=f"{home_path}/Dev/AI-Dokto
 
 parser.add_argument("--metafile", type=str, default=f"metadata.csv", help="Name of the metadata file")
 
-parser.add_argument('--zip', action=argparse.BooleanOptionalAction, default=False, help="Generate a zip file to keep csv files")
+parser.add_argument("--zip_dir", type=str, default=f"{home_path}/Dev/AI-Doktora/", help="Dir of exported zip")
 
 # 3. Parse the command-line arguments
 args = parser.parse_args()
@@ -26,7 +26,7 @@ args = parser.parse_args()
 # Define the path to CSV file
 # (Can be a local file path or a direct web URL)
 import_dir = args.import_dir
-gen_zip = args.zip
+zip_dir = args.zip_dir
 export_dir = args.export_dir
 metafile = f"{export_dir}/{args.metafile}"
 
@@ -146,7 +146,7 @@ metadata.to_csv(metafile, index=False)
 
 metadata.info()
 
-if (gen_zip):
+if (zip_dir):
     import shutil
-    print(f"Building zip: {export_dir}data")
+    print(f"Building zip: {zip_dir}data")
     shutil.make_archive(base_name=export_dir+"/"+'data',format='zip', root_dir=export_dir, base_dir=".")
