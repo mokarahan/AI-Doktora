@@ -21,9 +21,9 @@
             //"args": "${command:pickArgs}"
             "args": [
                 "--filename",
-                "./src/metadata.csv",
+                "./export/metadata.csv",
                 "--data_dir",
-                "./src/tmp",
+                "./export/",
                 "--show_figures",
                 "--generate_logs",
                 "--debug"
