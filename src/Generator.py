@@ -144,11 +144,6 @@ for battery_name, mat_filepath in zip(battery_list, FILELIST):
         
         capacity, re, rct = extract_more_metadata(metadata_dict)
         metadata = fill_metadata_row(metadata, test_type, test_start_time, test_temperature, battery_name, test_id, uid, filename, capacity, re, rct)
-        #print("CHECK TIME: ", test_start_time)
-        
-    # if counter > 2:
-    #    break
-
 
 metadata.to_csv(metafile, index=False)
 
