@@ -50,7 +50,7 @@ def load_filelist():
             
 def filter_matfiles_list(filelist):
     filelist = [filepath for filepath in filelist if filepath.endswith('.mat')]
-    filelist = [filepath for filepath in filelist if "BatteryAgingARC_25_26_27_28_P1" not in filepath] # removing duplicates
+    #filelist = [filepath for filepath in filelist if "BatteryAgingARC_25_26_27_28_P1" not in filepath] # removing duplicates
     return filelist
 
 
